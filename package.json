@@ -1,6 +1,6 @@
 {
   "name": "commit-msg-checker",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "",
   "main": "index.js",
   "bin": {
@@ -13,8 +13,8 @@
     "type": "git",
     "url": "git+https://github.com/hengg/commit-msg-checker.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["git","commit","commit-msg-checker"],
+  "author": "hengg",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/hengg/commit-msg-checker/issues"
