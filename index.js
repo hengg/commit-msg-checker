@@ -3,7 +3,6 @@ var fs = require("fs");
 
 fs.stat(".git/hooks/", function(err) {
   if (err) {
-    console.error("路径获取失败:");
     console.error(err);
     console.error("请确认当前项目是否通过git管理源代码");
   } else {
