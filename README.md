@@ -1,1 +1,1 @@
-# commit-msg-cli
+# commit-msg-checker
