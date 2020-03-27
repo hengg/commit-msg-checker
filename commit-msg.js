@@ -3,10 +3,15 @@
 
 const fs = require("fs");
 
-const REG = /^((feat|fix|style|docs|refactor|test|chore)(\([\S\s]+\))*:(\w{1,}))(\s*)(.*)$/;
+const packageInfo = require("../../package.json");
+const config = packageInfo.msgChecker || {};
+const isCheck = config.check || true;
+if (!isCheck) process.exit(1);
+
+const REG = config.reg||/^((feat|fix|style|docs|refactor|test|chore)(\([\S\s]+\))*:(\w{1,}))(\s*)(.*)$/;
 const color = (str, color) => process.stdout.isTTY ? `\x1B[${color}m${str}\x1B[0m` : str;
 
-const validateMessage = function(message) {
+const validateMessage = (message) => {
   const match = REG.exec(message);
   if (match) return true;
 
@@ -22,7 +27,7 @@ const validateMessage = function(message) {
   return false;
 };
 
-const msgFromBuffer = function(buffer) {
+const msgFromBuffer = (buffer) => {
   return buffer
     .toString()
     .split("\n")
@@ -31,7 +36,7 @@ const msgFromBuffer = function(buffer) {
 
 const commitMsgFile = process.argv[2];
 
-fs.readFile(commitMsgFile, function(_err, buffer) {
+fs.readFile(commitMsgFile, (_err, buffer) => {
   const msg = msgFromBuffer(buffer);
   if (!validateMessage(msg)) {
     process.exit(1);
