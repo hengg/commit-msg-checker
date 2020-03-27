@@ -3,8 +3,7 @@
 
 const fs = require("fs");
 
-const REG = /^((feat|fix|style|docs|refactor|test|chore)(\(|:)(\w*))(\s*)(.*)$/;
-
+const REG = /^((feat|fix|style|docs|refactor|test|chore)(\([\S\s]+\))*:(\w{1,}))(\s*)(.*)$/;
 const color = (str, color) => process.stdout.isTTY ? `\x1B[${color}m${str}\x1B[0m` : str;
 
 const validateMessage = function(message) {
