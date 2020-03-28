@@ -42,3 +42,4 @@ npm i commit-msg-checker -D
 ## TODO
 - ✅自定义校验规则
 - 更多自定义配置
+- 单测覆盖
