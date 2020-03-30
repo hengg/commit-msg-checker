@@ -25,7 +25,7 @@ npm i commit-msg-checker -D
 ## 使用
 在工程根目录下执行`checker-init`即可为项目添加检查
 
-如果不再使用，在工程根目录下执行`checker-init del`即可停用检查
+<del>如果不再使用，在工程根目录下执行`checker-init del`即可停用检查</del>
 
 也可以在package.json中添加自定义配置
 ```json
