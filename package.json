@@ -13,7 +13,11 @@
     "type": "git",
     "url": "git+https://github.com/hengg/commit-msg-checker.git"
   },
-  "keywords": ["git","commit","commit-msg-checker"],
+  "keywords": [
+    "git",
+    "commit",
+    "commit-msg-checker"
+  ],
   "author": "hengg",
   "license": "MIT",
   "bugs": {

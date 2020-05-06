@@ -8,7 +8,7 @@ const config = packageInfo.msgChecker || {};
 const isCheck = config.check || true;
 if (!isCheck) process.exit(1);
 
-const REG = config.reg||/^((feat|fix|style|docs|refactor|test|chore)(\([\S\s]+\))*:(\s*)(\S{1,}))(\s*)(.*)$/;
+const REG = config.reg||/^((feat|fix|style|docs|refactor|test|chore|ci|perf|build)(\([\S\s]+\))*:(\s*)(\S{1,}))(\s*)(.*)$/;
 const color = (str, color) => process.stdout.isTTY ? `\x1B[${color}m${str}\x1B[0m` : str;
 
 const validateMessage = (message) => {
@@ -23,6 +23,9 @@ const validateMessage = (message) => {
     refactor:重构
     test:增加测试
     chore:构建过程或辅助工具的变动
+    ci:CI工具相关变动
+    build:构建
+    perf:优化相关的变动
   `);
   return false;
 };
