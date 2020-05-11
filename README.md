@@ -12,6 +12,9 @@
     refactor：重构（即不是新增功能，也不是修改bug的代码变动）
     test：增加测试
     chore：构建过程或辅助工具的变动
+    ci:CI工具相关变动
+    build:构建
+    perf:优化相关的变动
     ```
 - scope为可选项，说明本次commit的变更范围
 - subject为本次变更的描述
@@ -24,8 +27,6 @@ npm i commit-msg-checker -D
 ```
 ## 使用
 在工程根目录下执行`checker-init`即可为项目添加检查
-
-<del>如果不再使用，在工程根目录下执行`checker-init del`即可停用检查</del>
 
 也可以在package.json中添加自定义配置
 ```json
