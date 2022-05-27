@@ -4,8 +4,8 @@
 const fs = require('fs');
 
 const packageInfo = require('../../package.json');
-const config = packageInfo.msgChecker || {};
-const isCheck = config.check || true;
+const config = Object.assign({ check: true}, packageInfo.msgChecker);
+const isCheck = config.check;
 if (!isCheck) process.exit(1);
 
 const REG =
@@ -14,6 +14,10 @@ const REG =
 const color = (str, color) => (process.stdout.isTTY ? `\x1B[${color}m${str}\x1B[0m` : str);
 
 const validateMessage = (message) => {
+    if (config.ignore) {
+        let res = new RegExp(config.ignore).test(message);
+        if (res) return true;
+    }
     const match = REG.exec(message);
     if (match) return true;
 

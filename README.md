@@ -34,6 +34,7 @@ npm i commit-msg-checker -D
 {
     ...
     "msgChecker":{
+        "ignore": "^v([1-9])", // 配置此项可忽略某些提交信息(lerna自动发包信息)
         "reg": "/\s/", // 配置此项可以自定义用于校验的正则表达式
         "check":true // 可以通过将此项设置为false以关闭检查器
     }
